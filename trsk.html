@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+           height: 50vh;
+           width: 70%;
+           margin: 100px auto;
+           border: 1px solid black;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <main class="main">
+        <h1>Task</h1>
+        <div><input type="text">
+        <button>Save</button>
+        </div>
+        <p>Total task <h6>0</h6></p>
+        <h5>Compleated task</h5>
+        <ul></ul>
+    </main>
+    <script>
+        inp=document.querySelector("input");
+        but=document.querySelector("button");
+        ul=document.querySelector("ul")
+        p=document.querySelector("p");
+        h5=document.querySelector("h5")
+        h6=document.querySelector("h6")
+        but.addEventListener('click', () =>{
+        // console.log(but,inp);
+        var w=localStorage.getItem("item") ? JSON.parse(localStorage.getItem("item")):[]
+        w.push(inp.value)
+        localStorage.setItem("item" , JSON.stringify(w))
+        inp.value=''
+        ha()
+        })
+        var to=1;
+        function ha() {
+            ul.innerHTML=''
+            var w=JSON.parse(localStorage.getItem("item"))
+            w.forEach((ele,index ) => {
+                var li=document.createElement("li")
+                li.innerHTML=` <input type="checkbox"  onclick="aa(${index})" onclick="bb()" class="box"> = ${ele}`
+                ul.appendChild(li)
+                to=index
+            });
+            to=to+1
+            console.log(to ,h6, "here");
+            h6.innerText=`${to}`
+        }
+        inu=document.querySelectorAll(".box");
+        function aa(e) {
+            var w=JSON.parse(localStorage.getItem("item"))
+             
+            localStorage.setItem("item" , JSON.stringify(w ,"true"))
+
+        }
+
+    </script>
+</body>
+</html>

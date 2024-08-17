@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        .a {
+            margin: 100px auto;
+            width: 50%;
+        }
+
+        .a1 {
+            width: 95%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class=' h-[70vh] border-2 border-black bg-black flex justify-center items-center flex-wrap a'>
+        <input type="text" placeholder='Enter any number' class=' p-7 a1'>
+        <div class='h-80 a1'>
+            <div class=' flex justify-around h-12 text-white'>
+                <button class=' bg-teal-400 py-5 px-10 rounded-lg flex justify-center items-center '>R</button>
+                <button class=' bg-teal-400 py-5 px-10 rounded-lg flex justify-center items-center '>Arrow</button>
+                <button class=' bg-teal-400 py-5 px-10 rounded-lg flex justify-center items-center '>C</button>
+                <button class=' bg-teal-400 py-5 px-10 rounded-lg flex justify-center items-center '>AC</button>
+            </div>
+            <div class='h-56 flex justify-evenly items-center flex-wrap m-3 gap-5'>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>7</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>8</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>9</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>/</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>Sq</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>4</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>5</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>6</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>*</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>X*2</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>1</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>2</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>3</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>-</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>1/x</button>
+                <button class=' bg-teal-400 py-3 px-9 rounded-lg flex justify-center items-center '>0</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>.</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>+-</button>
+                <button class=' bg-red-400 py-3 px-9 rounded-lg flex justify-center items-center '>+</button>
+                <button class=' bg-blue-400 py-3 px-9 rounded-lg flex justify-center items-center '>=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        inp = document.querySelector("input")
+        btn = document.querySelectorAll("button")
+        // console.log(btn);
+        btn.forEach(ele => {
+            ele.addEventListener("click" , (e)=>{
+            //    console.log(e.target.innerText);
+            // eval(inp.value+=e.target.innerText)
+            if (e.target.innerText === '=') {
+                // console.log(eval(inp.value));
+                inp.value=eval(inp.value)
+            }
+            else{
+                inp.value+=e.target.innerText
+            }
+            })
+        })
+
+    </script>
+</body>
+
+</html>

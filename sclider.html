@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+         .a{
+            height: 60vh;
+            width: 100vh;
+            border: 1px solid red;
+            margin: 50px auto;
+
+         }
+         img{
+            height: 100%;
+            width: 100%;
+         }
+         .b{
+            margin: -2px 240px;
+         }
+         button{
+            padding: 9px 8px;
+            background-color: black;
+            color: white;
+            /* margin: -2px; */
+         }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <img src="./img/chef3.jpg" alt="">
+        <div class="b">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+    </div>
+
+    <script>
+    var img=document.querySelector("img");
+    var but=document.querySelectorAll("button");
+    // console.log(but);
+    but.forEach(ele => {
+        // console.log(ele);
+        ele.addEventListener('click',(e)=>{
+        var my=`${e.target.innerText}.jpg`
+        img.setAttribute("src",`./img/${my}`)
+        })
+    });
+    </script>
+</body>
+</html>

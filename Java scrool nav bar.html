@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a57bff18a7.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .a{
+            animation: ma 2s linear 1;
+        }
+        .e{
+            color: white;
+            font-size: 25px;
+            position: relative;
+            bottom: 30px;
+            right: -50px;
+        }
+        @keyframes ma{
+            0%{
+               top:-20%;
+            }
+            100%{
+              top: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="h-20 w-full border border-1 border-black bg-blue-700 flex justify-center items-center gap-x-96 relative lg:gap-x-72  sm:gap-x-40">
+        <header>
+            <h1 class="text-white text-4xl italic">WORK</h1>
+        </header>
+        <ul class="text-white text-xl flex justify-center items-center gap-4">
+            <li class="hidden sm:inline-block">Home</li>
+            <li class="hidden sm:inline-block">About</li>
+            <li class="hidden sm:inline-block">contact</li>
+            <li class="hidden sm:inline-block">work</li>
+            <li class="hidden sm:inline-block">member</li>
+            <i class="fa-solid fa-bars text-2xl inline sm:hidden"></i>
+            <div></div>
+        </ul>
+    </nav>
+    <div class="h-[400vh] w-96 border border-1 border-blue-700"></div>
+
+    <script>
+        var nav=document.querySelector('nav');
+        var li=document.querySelectorAll("li");
+        var i=document.querySelector("i");
+        var div=document.querySelector("div");
+        
+        i.addEventListener('click' , ()=>{
+            // console.log(i,nav,ul);
+            nav.style.flexDirection='column'
+            i.style.display='none'
+            li.forEach((ele) => {
+                // console.log(ele);
+                ele.style.display="inline"
+            });
+            div.style.display='inline-block'
+            div.innerHTML=`<i class="fa-solid fa-xmark e" onclick="ha()"></i>`
+        })
+        function ha() {
+            nav.style.flexDirection='row';
+            i.style.display='inline'
+            li.forEach((ele)=>{
+                ele.style.display='none'
+            })
+            div.style.display='none'
+        }
+
+        window.addEventListener('scroll',()=>{
+            // console.log(scrollY);
+            var nav=document.querySelector("nav")
+            if (scrollY > 200) {
+                // console.log(nav);
+                nav.style.position='sticky'
+                nav.style.top='0'
+                nav.style.backgroundColor='black'
+                nav.classList.add('a')
+            }
+            else{
+                nav.style.position='relative'
+                nav.style.backgroundColor='blue'
+                nav.classList.remove('a')
+            }
+        })
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0;
+        }
+
+        .my{
+        animation:move 1s 1 linear;
+        background-color: aqua;
+
+    }
+    @keyframes move {
+        0%{
+            top: -20px;
+        }
+        100%{
+            top: 0px;
+        }
+    }
+    </style>
+</head>
+
+
+<body>
+    <nav style="background-color: black;height: 10vh;width: 100%;position: relative;"></nav>
+    <div style="height: 400vh;border: 2px solid red;"></div>
+</body>
+<script>
+    window.addEventListener('scroll', () => {
+        var nav = document.querySelector('nav')
+        if (scrollY > 300) {
+            // nav.style.backgroundColor="cyan"
+            nav.classList.add('my')
+            nav.style.position = "sticky"
+            nav.style.top = "0"
+            console.log(scrollY, "test");
+        }
+        else {
+            // nav.style.backgroundColor="black"
+            nav.classList.remove('my')
+            console.log(scrollY, "test");
+        }
+    })
+</script>
+</html> -->

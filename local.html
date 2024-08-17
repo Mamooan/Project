@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .t{
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <input type="text" placeholder="Enter the Any thing">
+    <button>ADD</button>
+    <button class="t" onclick="w()" id="vvv">Uplode</button>
+    <ul></ul>
+
+    <script>
+
+
+
+       var inp = document.querySelector('input')
+            var btn = document.querySelector('button')
+            var btn1 = document.querySelector('#vvv')
+            var ul = document.querySelector('ul')
+            // console.log(inp,btn ,"test");
+            btn.addEventListener('click', () => {
+                // console.log(inp.value, "input value here");
+                var data = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+                data.push(inp.value)
+                console.log(data, "test");
+                localStorage.setItem('items', JSON.stringify(data))
+                inp.value = ''
+                showValue()
+            })
+                showValue()
+            function showValue() {
+                ul.innerHTML = ''
+                var data = JSON.parse(localStorage.getItem('items'))
+                data.forEach((ele, index) => {
+                    // console.log(ele, "test");
+                    var li = document.createElement('li')
+                    li.innerHTML = `${index} = ${ele} = <button onclick='handledel(${index})'>Del</button> <button onclick='h(${index})'>Edit</button>  <button onclick='Up(${index})'>ShiftUp</button> <button onclick='Down(${index})'>ShiftDown</button>`
+                    ul.appendChild(li)
+                })
+            }
+            function handledel(i) {
+                console.log(i, "test here the index")
+                var data = JSON.parse(localStorage.getItem('items'))
+                data.splice(i, 1)
+                console.log(data, "test here code ");
+                localStorage.setItem('items', JSON.stringify(data))
+                showValue()
+            }
+            function Up(i) {
+      var data = JSON.parse(localStorage.getItem('items'));
+      var x = (i > 0 && i < data.length) && data.splice(i, 1)[0];
+      x && data.splice(i - 1, 0, x);
+      if (i==0) {
+        alert("Don,t go up")
+      }
+      else{
+        localStorage.setItem('items', JSON.stringify(data));
+      showValue();
+      }
+    
+    } 
+    function Down(i) {
+    var data = JSON.parse(localStorage.getItem('items'));
+    var x= (i >= 0 && i < data.length ) && data.splice(i, 1)[0];
+    x && data.splice(i + 1, 0, x);
+    if (i == data.length - 1) {
+      alert("Don,t to down")
+    }
+    else{
+      localStorage.setItem('items', JSON.stringify(data));
+      showValue(); 
+    }  
+ }
+
+var ed
+// console.log(btn1, "test here btn1");
+ function h(i) {
+    var data = JSON.parse(localStorage.getItem('items'));
+    inp.value= data[i]
+    ed=i
+    localStorage.setItem('items', JSON.stringify(data));
+    showValue();
+    btn1.classList.remove('t')
+    btn.classList.add('t')
+ }
+ function w() {
+    console.log(btn1)
+    var data = JSON.parse(localStorage.getItem('items'));
+    data[ed] = inp.value
+    localStorage.setItem('items', JSON.stringify(data));
+    showValue();
+    btn1.classList.add('t')
+    btn.classList.remove('t') 
+    inp.value=""
+ }
+
+
+
+
+
+
+
+ function ma(i) {
+    var data=JSON.parse(localStorage.getItem(""))
+    localStorage.setItem('items')
+ }
+
+
+    </script>
+
+
+
+
+
+    <script>
+        // var a=prompt("Enter the Key");
+        // var b=prompt("Enter the number and name");
+
+
+
+        // localStorage.setItem(a, b)
+        // console.log(`${a} = ${localStorage.getItem(a)}`);
+
+
+        // localStorage.setItem(a, b);
+        // if (a == "city" || a == "color") {
+        //     localStorage.removeItem(a)
+        // }
+
+
+        // if (a == 0) {
+        //      localStorage.clear()
+        // }
+           
+
+        // console.log(localStorage.length)
+        // localStorage.length
+
+
+        // to see the 1 Key number, name or value
+        // console.log(localStorage.key(2));
+
+
+
+        // set an element
+        // localStorage.one=1
+        // console.log(localStorage.one);
+
+    
+        // to convect the object in to the string
+        // JSON.stringify(Object);
+
+
+
+        // to convect the string in to the object
+        // JSON.parse(string)
+
+
+        // localStorage.setItem(a, b);
+        // window.onstorage=(e)=>{
+        //     alert("change")
+            // console.log(e);
+        // }
+    </script>
+
+
+
+    
+</body>
+</html>
+
+
+<!-- ...................................sir wala..................................... -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .main {
+            width: 50%;
+            margin: 100px 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <input type="text" placeholder="enter the name">
+        <button>add</button>
+        <ul></ul>
+        <script>
+
+
+
+            //    var a=10;
+            //    var b=20;
+            //    var temp=b;
+            //    b=a;
+            //    a=temp
+            //    console.log(a , b ,"test");
+
+
+
+            var inp = document.querySelector('input')
+            var btn = document.querySelector('button')
+            var ul = document.querySelector('ul')
+            // console.log(inp,btn ,"test");
+            btn.addEventListener('click', () => {
+                // console.log(inp.value, "input value here");
+                var data = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+                data.push(inp.value)
+                // console.log(data, "test");
+                localStorage.setItem('items', JSON.stringify(data))
+                inp.value = ''
+                showValue()
+            })
+            // showValue()
+
+            function showValue() {
+                ul.innerHTML = ''
+                var data = JSON.parse(localStorage.getItem('items'))
+                data.forEach((ele, index) => {
+                    // console.log(ele, "test");
+                    var li = document.createElement('li')
+                    li.innerHTML = `${index} = ${ele} = <button onclick='handledel(${index})'>Del</button> <button onclick='handledel(${index})'>Edit</button>  <button onclick='handledel(${index})'>ShiftUp</button> <button onclick='handledel(${index})'>ShiftDown</button>`
+                    ul.appendChild(li)
+                })
+            }
+            function handledel(i) {
+                console.log(i, "test here the index")
+                var data = JSON.parse(localStorage.getItem('items'))
+                data.splice(i, 1)
+                console.log(data, "test here code ");
+                localStorage.setItem('items', JSON.stringify(data))
+                showValue()
+            }
+        </script>
+    </div>
+</body>
+</html> -->

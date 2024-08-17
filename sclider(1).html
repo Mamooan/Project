@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      .a {
+         height: 60vh;
+         width: 100vh;
+         border: 1px solid red;
+         margin: 50px auto;
+         /* overflow: hidden; */
+         position: relative;
+
+      }
+
+      .sclider {
+         height: 91%;
+         width: 701%;
+         display: flex;
+         justify-content: space-between;
+         border: 1px solid red;
+         position: relative;
+         /* left: -300%; */
+      }
+
+      img {
+         height: 100%;
+         width: 13.5%;
+      }
+
+      .b {
+         margin: -2px 240px;
+      }
+
+      button {
+         padding: 6px 7px;
+         background-color: black;
+         color: white;
+         /* margin: -2px; */
+      }
+   </style>
+</head>
+
+<body>
+   <div class="a">
+      <div class="sclider">
+         <img src="./img/chef3.jpg" alt="">
+         <img src="./img/1.jpg" alt="">
+         <img src="./img/3.jpg" alt="">
+         <img src="./img/2.jpg" alt="">
+         <img src="./img/1.jpg" alt="">
+         <img src="./img/3.jpg" alt="">
+         <img src="./img/2.jpg" alt="">
+      </div>
+      <div class="b">
+         <button class="left">1</button>
+         <button class="right">2</button>
+      </div>
+   </div>
+   <script>
+          var left=document.querySelector(".left");
+          var right=document.querySelector(".right");
+          var sclider=document.querySelector(".sclider");
+          var co=3
+       //    console.log(left,right,sclider);
+          left.addEventListener("click",()=>{
+            if (co>0) {
+               co--
+            }
+            else{
+               co=6
+            }
+            sclider.style.left=`${co*-100}%`
+
+          })
+          right.addEventListener("click",()=>{
+             if (co<6) {
+                co++
+               }
+               else{
+                  co=0
+               }
+               sclider.style.left=`${co*-100}%`
+
+            console.log(co);
+
+          })
+
+
+
+      // var left = document.querySelector(".left");
+      // var right = document.querySelector(".right");
+      // var sclider = document.querySelector(".sclider");
+      // var images = Array.from(sclider.children);
+
+      // right.addEventListener("click", () => {
+      //    var lastImage = images.pop();
+      //    images.unshift(lastImage);
+      //    sclider.prepend(lastImage);
+      // });
+
+      // left.addEventListener("click", () => {
+      //    var firstImage = images.shift();
+      //    images.push(firstImage);
+      //    sclider.append(firstImage);
+      // });
+
+   </script>
+</body>
+
+</html>
